@@ -1,0 +1,5 @@
+- name: Common playbook
+  hosts: home 
+
+  roles: 
+    - common

@@ -1,0 +1,5 @@
+- name: Devtools playbook
+  hosts: home 
+
+  roles: 
+    - devtools

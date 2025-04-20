@@ -1,0 +1,17 @@
+# The local user to add to the docker group
+docker_user: "{{ ansible_user }}"
+
+docker_packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin
+
+# Where to keep the de‑armored GPG key
+docker_keyring_dir: /etc/apt/keyrings
+docker_keyring_path: /etc/apt/keyrings/docker.asc
+
+# Upstream GPG key URL
+docker_gpg_key_url: https://download.docker.com/linux/ubuntu/gpg
+

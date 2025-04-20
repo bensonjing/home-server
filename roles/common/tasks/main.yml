@@ -1,0 +1,45 @@
+- name: Update and upgrade APT packages 
+  apt: 
+    update_cache: yes 
+    upgrade: yes 
+
+- name: Install core packages 
+  apt: 
+    name: "{{ default_packages }}" 
+    state: present 
+
+- name: Set timezone 
+  timezone: 
+    name: "{{ timezone }}"
+
+- name: Create user 
+  user: 
+    name: "{{ username }}" 
+    groups: sudo 
+    append: yes 
+    create_home: yes 
+    shell: /bin/bash 
+
+- name: Configure passwordless sudo 
+  copy: 
+    dest: "/etc/sudoers.d/{{ username }}"
+    content: "{{ username }} ALL=(ALL) NOPASSWD:ALL\n"
+    mode: '0440' 
+
+- name: Set authorized ssh key for user 
+  authorized_key: 
+    user: "{{ username }}" 
+    state: present 
+    key: "{{ lookup('file', ssh_key) }}"
+
+- name: Configure Unattended Upgrades
+  copy:
+    dest: /etc/apt/apt.conf.d/20auto-upgrades
+    content: |
+      APT::Periodic::Update-Package-Lists "1";
+      APT::Periodic::Download-Upgradeable-Packages "1";
+      APT::Periodic::AutocleanInterval "7";
+      APT::Periodic::Unattended-Upgrade "1";
+    owner: root
+    group: root
+    mode: '0644'

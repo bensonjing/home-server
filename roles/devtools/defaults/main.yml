@@ -1,0 +1,10 @@
+devtools_packages: 
+  - git
+  - vim 
+  - tmux 
+  - tree
+
+git_global_username: "Benson Jing"
+git_global_email: "bensonjing@icloud.com"
+git_default_branch: "main"
+git_core_editor: "vim"

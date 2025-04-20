@@ -1,0 +1,37 @@
+- name: Update and upgrade APY packages 
+  apt: 
+    update_cache: yes 
+    upgrade: yes 
+
+- name: Install devtools packages 
+  apt: 
+    name: "{{ devtools_packages }}" 
+    state: present
+
+- name: Set git global user name 
+  become: no 
+  git_config: 
+    name: user.name 
+    scope: global 
+    value: "{{ git_global_username }}" 
+
+- name: Set git global email 
+  become: no 
+  git_config: 
+    name: user.email 
+    scope: global 
+    value: "{{ git_global_email }}" 
+
+- name: Set git default branch
+  become: no
+  git_config: 
+    name: init.defaultbranch
+    scope: global 
+    value: "{{ git_default_branch }}" 
+
+- name: Set git default editor
+  become: no
+  git_config: 
+    name: core.editor
+    scope: global 
+    value: "{{ git_core_editor }}" 

@@ -1,0 +1,10 @@
+timezone: UTC 
+default_packages: 
+  - ca-certificates 
+  - curl 
+  - wget 
+  - gnupg
+  - unzip
+  - lsb-release
+  - htop
+  - unattended-upgrades

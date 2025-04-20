@@ -1,0 +1,4 @@
+- name: Install .NET SDK 
+  apt: 
+    name: "aspnetcore-runtime-{{ dotnet_sdk_version }}"
+    update_cache: yes 

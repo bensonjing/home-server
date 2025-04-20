@@ -1,0 +1,5 @@
+- name: Dotnet playbook 
+  hosts: home 
+
+  roles:
+    - dotnet 

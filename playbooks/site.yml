@@ -1,0 +1,8 @@
+- name: Site playbook runs all roles
+  hosts: home 
+  
+  roles: 
+    - common
+    - devtools 
+    - docker 
+    - dotnet
