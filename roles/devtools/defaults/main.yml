@@ -5,6 +5,6 @@ devtools_packages:
   - tree
 
 git_global_username: "Benson Jing"
-git_global_email: "bensonjing@icloud.com"
+git_global_email: "43172170+bensonjing@users.noreply.github.com"
 git_default_branch: "main"
 git_core_editor: "vim"
